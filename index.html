@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Digital - Romeo & Juliet</title>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- WATERMARK VIDEO BACKGROUND (PALING BELAKANG SELURUH HALAMAN) -->
+    <div class="watermark-bg">
+        <video autoplay loop muted playsinline class="wm-video">
+            <source src="vidio.mp4" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+        </video>
+    </div>
+
+    <!-- WADAH ANIMASI KELOPAK BUNGA GUGUR -->
+    <div id="petalContainer"></div>
+
+    <!-- TOMBOL MUSIK FLOATING -->
+    <div id="audioControl" class="audio-control" onclick="toggleAudio()" style="display: none;">
+        <i id="audioIcon" class="fas me-music"></i>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="musik_jawa.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Halaman Cover Utama -->
+    <div id="coverPage" class="cover-container">
+        <div class="glass-card cover-card">
+            <!-- DEKORASI WAYANG BERGERAK COVER -->
+            <img src="wayang.png" alt="Wayang Ornament" class="wayang-img">
+            
+            <p class="sub-title">The Wedding Of</p>
+            <h1 class="bride-groom">Fauzi & Indah</h1>
+            <p class="tanggal-acara">Sabtu, 24 Oktober 2026</p>
+
+            <!-- COUNTDOWN TIMER COVER -->
+            <div class="countdown-wrapper">
+                <div class="countdown-box">
+                    <span id="cd-days">00</span>
+                    <small>Hari</small>
+                </div>
+                <div class="countdown-box">
+                    <span id="cd-hours">00</span>
+                    <small>Jam</small>
+                </div>
+                <div class="countdown-box">
+                    <span id="cd-minutes">00</span>
+                    <small>Menit</small>
+                </div>
+                <div class="countdown-box">
+                    <span id="cd-seconds">00</span>
+                    <small>Detik</small>
+                </div>
+            </div>
+
+            <p class="tamu-label">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <div class="nama-tamu" id="namaTamu">Tamu Undangan</div>
+
+            <button class="btn-open" onclick="bukaUndangan()">
+                <i class="fas fa-envelope-open"></i> Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- HALAMAN ISI UNDANGAN -->
+    <main id="isiUndangan" class="main-content" style="display: none;">
+
+        <!-- AYAT / MOTO -->
+        <section class="section-box">
+            <p class="quote-text">
+                "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."
+            </p>
+            <span class="quote-author">(Ar-Rum: 21)</span>
+        </section>
+
+       <!-- MEMPALAI -->
+        <section class="section-box">
+            <h2 class="section-title">Pasangan Mempelai</h2>
+            <p class="couple-intro">
+                Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga berkenan mempertautkan dua hati hamba-Mu ini:
+            </p>
+
+            <div class="couple-wrapper">
+                
+                <!-- PROFIL MEMPALAI PRIA -->
+                <div class="couple-profile">
+                    <div class="jawa-mirror-frame">
+                        <!-- ORNAMEN UKIRAN BUNGA ATAS & BAWAH -->
+                        <div class="floral-carving floral-top"><i class="fas fa-crown"></i></div>
+                        
+                        <!-- FOTO PROFIL MEMPALAI -->
+                        <img src="pria.jpg" alt="Foto Mempelai Pria" class="mirror-photo">
+                        
+                        <!-- BORDER CERMIN CERMIN OVAL EMAS -->
+                        <div class="mirror-gold-border"></div>
+                        <div class="floral-carving floral-bottom"><i class="fas fa-spa"></i></div>
+                    </div>
+                    <h3>Ahmad Fauzi</h3>
+                    <p class="parents-text">Putra dari Bp. M. solikin & Ibu syarifah</p>
+                </div>
+
+                <div class="couple-divider">&</div>
+
+                <!-- PROFIL MEMPALAI WANITA -->
+                <div class="couple-profile">
+                    <div class="jawa-mirror-frame">
+                        <!-- ORNAMEN UKIRAN BUNGA ATAS & BAWAH -->
+                        <div class="floral-carving floral-top"><i class="fas fa-crown"></i></div>
+                        
+                        <!-- FOTO PROFIL MEMPALAI -->
+                        <img src="wanita.jpg" alt="Foto Mempelai Wanita" class="mirror-photo">
+                        
+                        <!-- BORDER CERMIN CERMIN OVAL EMAS -->
+                        <div class="mirror-gold-border"></div>
+                        <div class="floral-carving floral-bottom"><i class="fas fa-spa"></i></div>
+                    </div>
+                    <h3>Indah Julia</h3>
+                    <p class="parents-text">Putri dari Bp. Slamet & Ibu Nikmah</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ACARA -->
+        <section class="section-box">
+            <h2 class="section-title">Jadwal Acara</h2>
+            <div class="event-details">
+                <div class="event-card">
+                    <h3>Akad Nikah</h3>
+                    <p><i class="far fa-clock"></i> 08.00 WIB - Selesai</p>
+                    <p><i class="far fa-calendar-alt"></i> Sabtu, 24 Oktober 2026</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Grand Ballroom Hotel Indonesia</p>
+                </div>
+                <div class="event-card">
+                    <h3>Resepsi</h3>
+                    <p><i class="far fa-clock"></i> 11.00 WIB - 15.00 WIB</p>
+                    <p><i class="far fa-calendar-alt"></i> Sabtu, 24 Oktober 2026</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Grand Ballroom Hotel Indonesia</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-action">Buka Google Maps</a>
+                </div>
+            </div>
+            
+            <div class="hiburan-box">
+                <h4>HIBURAN</h4>
+                <p>Live Music Performance & Musik Tradisional Gamelan</p>
+            </div>
+
+            <div class="turut-mengundang">
+                <h4>TURUT MENGUNDANG</h4>
+                <p>Keluarga Besar Bp. M. solikin</p>
+                <p>Keluarga Besar Bp. C. slamet</p>
+                <p>Segenap Tokoh Masyarakat & Kerabat</p>
+            </div>
+        </section>
+
+        <!-- GALERI FOTO -->
+        <section class="section-box">
+            <h2 class="section-title">Galeri Momen</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=400" alt="Prewedding Momen Bahagia" onclick="openModal(this)">
+                    <p class="gallery-caption">Prewedding Momen Bahagia</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=400" alt="Kenangan Indah Bersama" onclick="openModal(this)">
+                    <p class="gallery-caption">Kenangan Indah Bersama</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=400" alt="Langkah Menuju Halal" onclick="openModal(this)">
+                    <p class="gallery-caption">Langkah Menuju Halal</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=400" alt="Menuju Hari Bahagia" onclick="openModal(this)">
+                    <p class="gallery-caption">Menuju Hari Bahagia</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- UCAPAN & DOA -->
+        <section class="section-box">
+            <h2 class="section-title">Kirim Ucapan & Doa</h2>
+            <form id="ucapanForm" onsubmit="tambahUcapan(event)" class="ucapan-form">
+                <input type="text" id="namaPengirim" placeholder="Nama Anda" required>
+                <textarea id="pesanUcapan" rows="4" placeholder="Tuliskan ucapan & doa Anda..." required></textarea>
+                <button type="submit" class="btn-action">Kirim Ucapan</button>
+            </form>
+            
+            <div id="ucapanList" class="ucapan-list">
+                <!-- Ucapan dari LocalStorage akan muncul di sini -->
+            </div>
+        </section>
+
+        <!-- AMPLOP DIGITAL -->
+        <section class="section-box">
+            <h2 class="section-title">Amplop Digital & Sponsor</h2>
+            <p class="bank-subtext">Bagi Bapak/Ibu/Saudara/i yang ingin memberikan hadiah, dapat melalui reklopdet digital di bawah ini:</p>
+            <div class="bank-wrapper">
+                <div class="bank-card">
+                    <h4>BANK BCA</h4>
+                    <p class="rekening-num">1234 5678 90</p>
+                    <p>a.n Romeo Montague</p>
+                    <button class="btn-salin" onclick="copyText('1234567890')">Salin No. Rekening</button>
+                </div>
+                <div class="bank-card">
+                    <h4>DANA / OVO</h4>
+                    <p class="rekening-num">0812 3456 7890</p>
+                    <p>a.n Juliet Capulet</p>
+                    <button class="btn-salin" onclick="copyText('081234567890')">Salin Nomor</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer-box">
+            <p>Powered & Designed by:</p>
+            <h3>Rizquna Parenting</h3>
+            <p>WhatsApp: 081540078287 | Instagram: @rizquna_parenting</p>
+        </footer>
+
+    </main>
+
+    <!-- LIGHTBOX MODAL GALERI FOTO -->
+    <div id="galleryModal" class="modal-gallery" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="imgModal">
+        <div id="captionModal" class="modal-caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
